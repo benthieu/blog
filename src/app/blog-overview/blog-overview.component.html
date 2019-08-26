@@ -1,0 +1,11 @@
+<ng-container *ngIf="blogPosts.length; else emptyState">
+  <article *ngFor="let blogPost of blogPosts">
+    <img [src]="blogPost.fields.image.fields.file.url + '?fm=jpg&fl=progressive&fit=fill&w=400&h=250'" />
+    <h3>{{ blogPost.sys.createdAt | date:'medium' }}</h3>
+    <h2>{{ blogPost.fields.title }}</h2>
+    <div class="body" Markdown>{{ blogPost.fields.description }}</div>
+  </article>
+</ng-container>
+<ng-template #emptyState>
+  test
+</ng-template>
