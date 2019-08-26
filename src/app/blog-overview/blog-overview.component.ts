@@ -8,12 +8,14 @@ import {ContentfulService} from '../shared/contentful.service';
 })
 export class BlogOverviewComponent implements OnInit {
   blogPosts = Array<any>();
+  loadingError = false;
   constructor(private contentfulService: ContentfulService) { }
 
   ngOnInit() {
     this.contentfulService.getBlogPosts().then(content => {
-      console.log(content);
       this.blogPosts = content;
+    }).catch(() => {
+      this.loadingError = true;
     });
   }
 }

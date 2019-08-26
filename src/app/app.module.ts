@@ -7,11 +7,13 @@ import {ContentfulService} from './shared/contentful.service';
 import { BlogOverviewComponent } from './blog-overview/blog-overview.component';
 import { NgxMdModule } from 'ngx-md';
 import {HttpClientModule} from '@angular/common/http';
+import { BlogEntryComponent } from './blog-entry/blog-entry.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    BlogOverviewComponent
+    BlogOverviewComponent,
+    BlogEntryComponent
   ],
   imports: [
     BrowserModule,

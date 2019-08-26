@@ -13,9 +13,19 @@ export class ContentfulService {
 
   constructor() { }
 
+  getBlogPost(id: string, query?: object): Promise<Entry<any>> {
+    return this.cdaClient.getEntry(id, Object.assign({
+      content_type: environment.contentful.contentTypeIds.blogPost
+    }, query))
+    .then(res => {
+      return res;
+    });
+  }
+
   getBlogPosts(query?: object): Promise<Entry<any>[]> {
     return this.cdaClient.getEntries(Object.assign({
-      content_type: environment.contentful.contentTypeIds.blogPost
+      content_type: environment.contentful.contentTypeIds.blogPost,
+      order: '-sys.createdAt'
     }, query))
     .then(res => {
       return res.items.map(entry => {

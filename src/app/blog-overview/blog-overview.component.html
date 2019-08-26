@@ -1,11 +1,35 @@
-<ng-container *ngIf="blogPosts.length; else emptyState">
+<header style="text-align:center">
+  <h1>
+    Welcome to Benjo's Blog!
+  </h1>
+</header>
+<ng-container *ngIf="blogPosts.length && !loadingError; else emptyState">
   <article *ngFor="let blogPost of blogPosts">
-    <img [src]="blogPost.fields.image.fields.file.url + '?fm=jpg&fl=progressive&fit=fill&w=400&h=250'" />
-    <h3>{{ blogPost.sys.createdAt | date:'medium' }}</h3>
-    <h2>{{ blogPost.fields.title }}</h2>
-    <div class="body" Markdown>{{ blogPost.fields.description }}</div>
+    <a [routerLink]="['/blog', blogPost.sys.id]">
+      <img [src]="blogPost.fields.image.fields.file.url + '?fm=jpg&fl=progressive&fit=fill&w=400&h=250'" />
+    </a>
+    <div class="article-base">
+      <h3>{{ blogPost.sys.createdAt | date:'medium' }}</h3>
+      <h2><a [routerLink]="['/blog', blogPost.sys.id]">{{ blogPost.fields.title }}</a></h2>
+      <div class="description" Markdown>{{ blogPost.fields.description }}</div>
+    </div>
   </article>
 </ng-container>
 <ng-template #emptyState>
-  test
+  <article *ngFor="let number of [0,1,2]">
+    <div class="image-skeleton skeleton"></div>
+    <div class="article-base">
+      <div class="text-h3-skeleton skeleton"></div>
+      <div class="text-h2-skeleton skeleton"></div>
+      <div class="skeleton-description">
+        <div class="skeleton"></div>
+        <div class="skeleton"></div>
+        <div class="skeleton"></div>
+      </div>
+    </div>
+  </article>
 </ng-template>
+<ng-container *ngIf="loadingError">
+  <div style="text-align: center"><h2>Oh snap!</h2>
+  <h3>Something went wrong</h3></div>
+</ng-container>

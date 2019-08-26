@@ -1,0 +1,19 @@
+<ng-container *ngIf="blogEntry && !loadingError; else emptyState">
+<article>
+    <header>
+        <h3>{{ blogEntry.sys.createdAt | date:'medium' }}</h3>
+        <h1>
+            {{ blogEntry.fields.title }}
+        </h1>
+        <div class="description" Markdown>{{ blogEntry.fields.description }}</div>
+    </header>
+    <img [src]="blogEntry.fields.heroImage.fields.file.url + '?fm=jpg&fl=progressive&fit=fill&w=1000&h=320'" />
+    <div class="body" Markdown>{{ blogEntry.fields.body }}</div>
+</article>
+</ng-container>
+<ng-template #emptyState>
+</ng-template>
+<ng-container *ngIf="loadingError">
+<div style="text-align: center"><h2>Oh snap!</h2>
+<h3>Something went wrong</h3></div>
+</ng-container>
