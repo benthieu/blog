@@ -44,5 +44,53 @@ body {
             max-width: 100%;
         }
     }
+    .logo {
+        width: 0;
+        height: 0;
+        position: relative;
+        float: right;
+        border-left: 23px solid transparent;
+        border-right: 23px solid transparent;
+        border-bottom: 35px solid #494c4e;
+        cursor: pointer;
+        &,
+        &:before,
+        &:after {
+            transition: all 0.3s ease-in-out;
+        }
+        &:before {
+            content: ' ';
+            width: 0;
+            height: 0;
+            position: absolute;
+            top: 2px;
+            left: -21px;
+            border-left: 21px solid transparent;
+            border-right: 21px solid transparent;
+            border-bottom: 32px solid white;
+        }
+        &:after {
+            content: 'B';
+            position: absolute;
+            top: 0;
+            left: -5px;
+            width: 10px;
+            line-height: 45px;
+            color: #494c4e;
+        }
+        &:hover {
+            transform: rotate(-90deg);
+            &:after {
+                color: transparent;
+            }
+            &:before {
+                left: -23px;
+                border-bottom-width: 35px;
+                border-left-width: 23px;
+                border-right-width: 23px;
+            }
+        }
+        
+    }
 }
 @keyframes shimmer{0%{background-position:-468px 0}to{background-position:468px 0}}
