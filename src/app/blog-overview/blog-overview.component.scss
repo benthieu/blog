@@ -1,38 +1,71 @@
 :host {
     display: block;
     padding: 0 30px;
+    @media only screen and (max-width: 360px) {
+        padding: 0 10px;
+    }
     h1 {
         margin-top: 30px;
         margin-bottom: 60px;
     }
     article {
-        display: block;
+        display: grid;
+        grid-template-columns: 300px auto;
         clear: both;
         margin-bottom: 30px;
-        overflow: auto;
-        .article-base {
-            overflow: auto;
+        h3 {
+            grid-column: 2;
         }
         h2 {
             font-size: 1.4em;
             margin-top: 0.5em;
             margin-bottom: 1em;
+            grid-column: 2;
+        }
+        .description {
+            line-height: 1.5em;
+            grid-column: 2;
+        }
+        > a {
+            display: block;
+            padding: 0 30px 20px 0;
+            width: 300px;
+            grid-row: 1 / 4;
+            grid-column: 1;
+            box-sizing: border-box;
+        }
+        @media only screen and (max-width: 680px) {
+            & {
+                grid-template-columns: auto;
+                h3 {
+                    grid-column: 1;
+                    order: 1;
+                }
+                h2 {
+                    grid-column: 1;
+                    order: 2;
+                }
+                > a {
+                    max-width: 100%;
+                    grid-column: 1;
+                    order: 3;
+                    grid-row: auto;
+                }
+                .description {
+                    grid-column: 1;
+                    order: 4;
+                }
+            }
         }
         a {
             text-decoration: none;
             outline: none;
-            display: block;   
         }
         img,
         .image-skeleton {
-            width: 300px;
+            width: 100%;
             position: relative;
             display: block;
-            float: left;
-            margin: 0 30px 10px 0;
-        }
-        .description {
-            line-height: 1.5em;
         }
         .image-skeleton {
             padding-bottom: 19%;
