@@ -1,6 +1,6 @@
 <header style="text-align:center">
   <h1>
-    Welcome to Benjo's Blog!
+    Welcome!
   </h1>
 </header>
 <ng-container *ngIf="blogPosts.length && !loadingError; else emptyState">
@@ -15,10 +15,13 @@
 </ng-container>
 <ng-template #emptyState>
   <article *ngFor="let number of [0,1,2]">
-    <div class="image-skeleton skeleton"></div>
+    <div class="image-skeleton"><div class="img skeleton"></div></div>
     <div class="text-h3-skeleton skeleton"></div>
     <div class="text-h2-skeleton skeleton"></div>
     <div class="skeleton-description">
+      <div class="skeleton"></div>
+      <div class="skeleton"></div>
+      <div class="skeleton"></div>
       <div class="skeleton"></div>
       <div class="skeleton"></div>
       <div class="skeleton"></div>
