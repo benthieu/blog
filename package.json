@@ -20,6 +20,7 @@
     "@angular/platform-browser-dynamic": "^8.2.14",
     "@angular/router": "^8.2.14",
     "contentful": "^7.13.1",
+    "contentful-management": "^5.13.0",
     "core-js": "^2.6.11",
     "ngx-md": "^8.1.6",
     "rxjs": "^6.5.4",
