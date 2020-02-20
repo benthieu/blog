@@ -29,7 +29,7 @@ function sample(arr) {
     return arr[Math.floor(Math.random() * arr.length)];
 }
 
-export default function handler(event, context, callback) {
+export function handler(event, context, callback) {
     callback(null, {
         statusCode: 200,
         body: JSON.stringify(sample(emoji)),

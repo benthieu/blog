@@ -2,7 +2,7 @@ import {createComment} from './utils/create-comment';
 
 // from https://github.com/shaunpersad/authless-comments-example
 
-export default function handler(event, context, callback) {
+export function handler(event, context, callback) {
     const {body, author, blogPostEntryId} = JSON.parse(event.body);
 
     createComment(body, author, blogPostEntryId)
