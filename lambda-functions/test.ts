@@ -34,4 +34,4 @@ export function handler(event, context, callback) {
         statusCode: 200,
         body: JSON.stringify(sample(emoji)),
     });
-};
+}

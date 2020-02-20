@@ -14,4 +14,4 @@ export function handler(event, context, callback) {
             body: JSON.stringify({message: 'OK', entry: JSON.stringify(entry)})
         }))
         .catch(callback);
-};
+}

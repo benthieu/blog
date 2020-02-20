@@ -4,7 +4,10 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "serve-lambda": "netlify-lambda serve lambda-functions",
     "build": "ng build && netlify-lambda build lambda-functions",
+    "build:stats": "ng build --statsJson",
+    "analyze": "webpack-bundle-analyzer dist/blog/stats-es2015.json",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
@@ -49,6 +52,7 @@
     "protractor": "^5.4.3",
     "ts-node": "~7.0.0",
     "tslint": "~5.11.0",
-    "typescript": "^3.5.3"
+    "typescript": "^3.5.3",
+    "webpack-bundle-analyzer": "^3.6.0"
   }
 }
