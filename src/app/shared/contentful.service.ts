@@ -1,5 +1,5 @@
-import { Injectable, SystemJsNgModuleLoader } from '@angular/core';
-import { createClient, Entry } from 'contentful';
+import {Injectable} from '@angular/core';
+import {createClient, Entry} from 'contentful';
 import {environment} from '../../environments/environment.prod';
 
 @Injectable({
