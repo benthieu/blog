@@ -10,7 +10,7 @@
         <img [src]="blogEntry.fields.heroImage.fields.file.url + '?fm=jpg&fl=progressive&fit=fill&w=1000&h=320'" />
         <div class="body" Markdown>{{ blogEntry.fields.body }}</div>
     </article>
-    <app-blog-entry-comment></app-blog-entry-comment>
+    <app-blog-entry-comment [blogPostEntryId]="blogEntryId"></app-blog-entry-comment>
 </ng-container>
 <ng-template #emptyState>
 </ng-template>

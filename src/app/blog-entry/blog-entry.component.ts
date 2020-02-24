@@ -9,7 +9,7 @@ import {ContentfulService} from '../shared/contentful.service';
 })
 export class BlogEntryComponent implements OnInit, OnDestroy {
   private sub: any;
-  private blogEntryId: string;
+  public blogEntryId: string;
   loadingError = false;
   blogEntry: any;
 
@@ -18,7 +18,7 @@ export class BlogEntryComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
       this.contentfulService.getBlogPost(params.id).then(content => {
-        console.log(content);
+        this.blogEntryId = params.id;
         this.blogEntry = content;
       }).catch(() => {
         this.loadingError = true;

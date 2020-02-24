@@ -1,4 +1,5 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, Input} from '@angular/core';
+import {BlogEntryCommentService} from './blog-entry-comment.service';
 
 @Component({
   selector: 'app-blog-entry-comment',
@@ -11,8 +12,10 @@ export class BlogEntryCommentComponent implements OnInit {
   public email: string;
   public body: string;
   public submitted = false;
+  @Input()
+  public blogPostEntryId: string;
 
-  constructor() {}
+  constructor(private blogEntryCommentService: BlogEntryCommentService) {}
 
   ngOnInit() {
   }
@@ -22,6 +25,8 @@ export class BlogEntryCommentComponent implements OnInit {
   }
 
   resolvedCaptcha(captchaResponse: string) {
-    console.log(`Resolved captcha with response: ${captchaResponse}`);
+    if (captchaResponse) {
+      this.blogEntryCommentService.addComment(this.author, this.email, this.body, this.blogPostEntryId, captchaResponse);
+    }
   }
 }
