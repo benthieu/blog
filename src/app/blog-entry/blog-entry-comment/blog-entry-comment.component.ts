@@ -26,7 +26,7 @@ export class BlogEntryCommentComponent implements OnInit {
 
   resolvedCaptcha(captchaResponse: string) {
     if (captchaResponse) {
-      this.blogEntryCommentService.addComment(this.author, this.email, this.body, this.blogPostEntryId, captchaResponse);
+      this.blogEntryCommentService.addComment(this.author, this.email, this.body, this.blogPostEntryId, captchaResponse).subscribe();
     }
   }
 }
