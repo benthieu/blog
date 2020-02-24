@@ -11,7 +11,7 @@ export function handler(event, context, callback) {
                 'Content-Type': 'application/json'
             },
             statusCode: 200,
-            body: JSON.stringify({message: 'OK', entry: JSON.stringify(entry)})
+            body: JSON.stringify({message: 'OK'})
         }))
         .catch(callback);
 }

@@ -7,6 +7,8 @@ const client = createClient({
 });
 
 export function createComment(body: string, author: string, blogPostEntryId: string) {
+    
+
     return client.getSpace(process.env.BLOG_CONTENTFUL_SPACE_ID)
         .then((space: Space) => space.getEnvironment('master'))
         .then((environment: Environment) => environment.createEntry('comment', {

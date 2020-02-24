@@ -1,0 +1,27 @@
+:host {
+  .comment-container {
+    max-width: 600px;
+    margin: 0 auto 40px auto;
+  }
+
+  input,
+  textarea {
+    box-sizing: border-box;
+    width: 100%;
+    margin: 0 0 10px 0;
+    border: 1px solid #ababab;
+    border-left: 3px solid #ababab;
+    border-radius: 3px;
+    line-height: 15px;
+    padding: 8px 5px;
+  }
+
+  .ng-valid[required],
+  .ng-valid.required {
+    border-left: 3px solid #42a948; /* green */
+  }
+
+  .ng-invalid:not(form):not(.ng-untouched):not(:focus) {
+    border-left: 3px solid #a94442; /* red */
+  }
+}
