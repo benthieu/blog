@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-blog-entry-comment',
@@ -10,14 +10,18 @@ export class BlogEntryCommentComponent implements OnInit {
   public author: string;
   public email: string;
   public body: string;
+  public submitted = false;
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
   }
 
   public onSubmit() {
-    console.log('test');
+    this.submitted = true;
   }
 
+  resolvedCaptcha(captchaResponse: string) {
+    console.log(`Resolved captcha with response: ${captchaResponse}`);
+  }
 }

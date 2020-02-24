@@ -1,23 +1,23 @@
 <div class="comment-container">
     <h2>Your comment</h2>
-    <form (ngSubmit)="onSubmit()" #commentForm="ngForm">
+    <form (ngSubmit)="onSubmit()" #commentForm="ngForm" *ngIf="!submitted">
         <div class="form-group">
             <input type="text" class="form-control" id="author" name="author" required [(ngModel)]="author"
-                placeholder="Your Name *">
+                placeholder="Your Name">
         </div>
 
         <div class="form-group">
-            <input type="text" class="form-control" id="email" name="email" required [(ngModel)]="email"
-                placeholder="Your Email * (Won't be published)">
+            <input type="email" class="form-control" id="email" name="email" required [(ngModel)]="email"
+                placeholder="Your Email (Won't be published)">
         </div>
 
-        <div class="form-group">
+        <div class="form-group form-flex">
             <textarea class="form-control" placeholder="Your Message" required [(ngModel)]="body" id="body" name="body"
                 rows=5></textarea>
+            <button type="submit" class="btn btn-success" [disabled]="!commentForm.form.valid">Submit</button>
         </div>
-
-        <div class="g-recaptcha" data-sitekey="6LfNo9sUAAAAAPI6346onXJthQKxYgqlrERcNcK5"></div>
-
-        <button type="submit" class="btn btn-success">Submit</button>
     </form>
+    <div *ngIf="submitted">
+        <re-captcha (resolved)="resolvedCaptcha($event)" siteKey="6LfNo9sUAAAAAPI6346onXJthQKxYgqlrERcNcK5"></re-captcha>
+    </div>
 </div>

@@ -1,5 +1,4 @@
-import { Component } from '@angular/core';
-import {ContentfulService} from './shared/contentful.service';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-root',

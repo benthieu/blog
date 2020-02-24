@@ -1,13 +1,14 @@
 import {CommonModule} from '@angular/common';
 import {NgModule} from '@angular/core';
-import {BlogEntryCommentComponent} from './blog-entry-comment.component';
 import {FormsModule} from '@angular/forms';
-import {BrowserModule} from '@angular/platform-browser';
+import {RecaptchaModule} from 'ng-recaptcha';
+import {BlogEntryCommentComponent} from './blog-entry-comment.component';
 
 @NgModule({
     imports: [
         CommonModule,
-        FormsModule
+        FormsModule,
+        RecaptchaModule
     ],
     declarations: [BlogEntryCommentComponent],
     exports: [BlogEntryCommentComponent]

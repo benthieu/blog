@@ -14,14 +14,27 @@
     border-radius: 3px;
     line-height: 15px;
     padding: 8px 5px;
+    outline: none !important;
   }
 
   .ng-valid[required],
   .ng-valid.required {
-    border-left: 3px solid #42a948; /* green */
+    border-left: 3px solid #42a948;
   }
 
   .ng-invalid:not(form):not(.ng-untouched):not(:focus) {
-    border-left: 3px solid #a94442; /* red */
+    border-left: 3px solid #a94442;
+  }
+
+  .form-flex {
+      display: flex;
+      textarea {
+          order: 0;
+          margin-bottom: 0;
+      }
+      button[type=submit] {
+          order: 1;
+          margin-left: 10px;
+      }
   }
 }

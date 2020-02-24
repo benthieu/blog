@@ -6,8 +6,8 @@ const client = createClient({
     accessToken: process.env.CONTENTFUL_CONTENT_MANAGEMENT_ACCESS_TOKEN
 });
 
-export function createComment(body: string, author: string, blogPostEntryId: string) {
-    
+export function createComment(body: string, email: string, author: string, blogPostEntryId: string) {
+
 
     return client.getSpace(process.env.BLOG_CONTENTFUL_SPACE_ID)
         .then((space: Space) => space.getEnvironment('master'))
@@ -18,6 +18,9 @@ export function createComment(body: string, author: string, blogPostEntryId: str
                 },
                 author: {
                     'en-US': author
+                },
+                email: {
+                    'en-US': email
                 },
                 blogPostEntryId: {
                     'en-US': {
