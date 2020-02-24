@@ -3,8 +3,7 @@ const axios = require('axios').default;
 // from https://github.com/shaunpersad/authless-comments-example
 
 export function handler(event, context, callback) {
-    const {body, email, author, captcha, blogPostEntryId} = JSON.parse(event.body);
-
+    const {author, email, body, captcha, blogPostEntryId} = JSON.parse(event.body);
     // verify the result by POSTing to google backend with secret and
     // frontend recaptcha token as payload
     axios.post(`https://www.google.com/recaptcha/api/siteverify`, {
