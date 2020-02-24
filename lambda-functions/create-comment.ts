@@ -2,7 +2,7 @@ import {createComment} from './utils/create-comment';
 const axios = require('axios').default;
 // from https://github.com/shaunpersad/authless-comments-example
 
-export async function handler(event, context, callback) {
+export function handler(event, context, callback) {
     const {body, email, author, captcha, blogPostEntryId} = JSON.parse(event.body);
 
     // verify the result by POSTing to google backend with secret and
