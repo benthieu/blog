@@ -7,7 +7,7 @@
     "serve-lambda": "netlify-lambda serve lambda-functions",
     "build": "ng build && netlify-lambda build lambda-functions",
     "build:stats": "ng build --statsJson",
-    "analyze": "webpack-bundle-analyzer dist/blog/stats-es2015.json",
+    "analyze": "webpack-bundle-analyzer dist/blog/stats.json",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"

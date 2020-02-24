@@ -1,4 +1,5 @@
 # Blog
+[![Netlify Status](https://api.netlify.com/api/v1/badges/4a1692d9-0898-4503-b5d7-8c63972ff303/deploy-status)](https://app.netlify.com/sites/blog-benjamin-mathieu/deploys)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.9.
 
