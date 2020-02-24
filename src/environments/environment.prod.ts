@@ -4,7 +4,8 @@ export const environment = {
     space: '2jvij655020y',
     accessToken: 'HvQKcsCtWY4-obo9x_f0kumYlKowuLpN1JtAKsOBslo',
     contentTypeIds: {
-      blogPost: 'blogPost'
+      blogPost: 'blogPost',
+      comment: 'comment'
     }
   }
 };

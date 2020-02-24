@@ -1,15 +1,17 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
+import {ContentfulService} from '../../shared/contentful.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BlogEntryCommentService {
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient,
+              private contentfulService: ContentfulService) {}
 
-  addComment(author: string, email: string, body: string, blogPostEntryId: string, captcha: string): Observable<any> {
+  public addComment(author: string, email: string, body: string, blogPostEntryId: string, captcha: string): Observable<any> {
     const requestPayload = {
       author,
       email,
@@ -21,5 +23,9 @@ export class BlogEntryCommentService {
       `https://blog.benjamin-mathieu.ch/.netlify/functions/create-comment`,
       JSON.stringify(requestPayload)
     );
+  }
+
+  public async getComments(blogPostEntryId: string): Promise<Array<any>> {
+    return this.contentfulService.getBlogComments(blogPostEntryId);
   }
 }

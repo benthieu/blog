@@ -12,12 +12,15 @@ export class BlogEntryCommentComponent implements OnInit {
   public email: string;
   public body: string;
   public submitted = false;
+  public added = false;
+  public comments: Array<any>;
   @Input()
   public blogPostEntryId: string;
 
   constructor(private blogEntryCommentService: BlogEntryCommentService) {}
 
   ngOnInit() {
+    this.blogEntryCommentService.getComments(this.blogPostEntryId).then(comments => this.comments);
   }
 
   public onSubmit() {
@@ -26,7 +29,9 @@ export class BlogEntryCommentComponent implements OnInit {
 
   resolvedCaptcha(captchaResponse: string) {
     if (captchaResponse) {
-      this.blogEntryCommentService.addComment(this.author, this.email, this.body, this.blogPostEntryId, captchaResponse).subscribe();
+      this.blogEntryCommentService.addComment(this.author, this.email, this.body, this.blogPostEntryId, captchaResponse).subscribe(() => {
+        this.added = true;
+      });
     }
   }
 }

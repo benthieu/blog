@@ -1,4 +1,7 @@
-<div class="comment-container">
+<div class="comments-container" *ngIf="comments">
+
+</div>
+<div class="comment-create-container">
     <h2>Your comment</h2>
     <form (ngSubmit)="onSubmit()" #commentForm="ngForm" *ngIf="!submitted">
         <div class="form-group">
@@ -17,7 +20,11 @@
             <button type="submit" class="btn btn-success" [disabled]="!commentForm.form.valid">Submit</button>
         </div>
     </form>
-    <div *ngIf="submitted">
+    <div *ngIf="submitted && !added">
         <re-captcha (resolved)="resolvedCaptcha($event)" siteKey="6LfNo9sUAAAAAPI6346onXJthQKxYgqlrERcNcK5"></re-captcha>
+    </div>
+
+    <div *ngIf="submitted && added">
+        <p>Your comment has been submitted and will now be reviewed. This may take a while. Thank you</p>
     </div>
 </div>

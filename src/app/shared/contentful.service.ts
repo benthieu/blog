@@ -37,4 +37,16 @@ export class ContentfulService {
       });
     });
   }
+
+
+  getBlogComments(blogPostEntryId: string, query?: object): Promise<Entry<any>[]> {
+    return this.cdaClient.getEntries(Object.assign({
+      content_type: environment.contentful.contentTypeIds.comment,
+      order: '-sys.createdAt',
+      'fields.blogPostEntryId.sys.id': blogPostEntryId
+    }, query))
+    .then(res => {
+      return res.items;
+    });
+  }
 }
