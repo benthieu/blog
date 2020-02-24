@@ -19,7 +19,7 @@ export class BlogEntryCommentService {
     };
     return this.httpClient.post<any>(
       `https://blog.benjamin-mathieu.ch/.netlify/functions/create-comment`,
-      requestPayload
+      JSON.stringify(requestPayload)
     );
   }
 }
