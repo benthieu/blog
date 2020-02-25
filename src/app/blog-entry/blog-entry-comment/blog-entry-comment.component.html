@@ -1,5 +1,21 @@
-<div class="comments-container" *ngIf="comments">
-
+<div class="comments-container">
+    <h2>Comments</h2>
+    <div *ngIf="comments.length">
+        <ng-container *ngFor="let comment of comments">
+            <div class="comment">
+                <header>
+                    <h1>
+                        {{ comment.fields.author }}
+                    </h1>
+                    <h3>{{ comment.sys.createdAt | date:'medium' }}</h3>
+                </header>
+                <div class="body" Markdown>{{ comment.fields.body }}</div>
+            </div>
+        </ng-container>
+    </div>
+    <div *ngIf="!comments.length">
+        This article has no comments yet. Be the first!
+    </div>
 </div>
 <div class="comment-create-container">
     <h2>Your comment</h2>
@@ -21,7 +37,8 @@
         </div>
     </form>
     <div *ngIf="submitted && !added">
-        <re-captcha (resolved)="resolvedCaptcha($event)" siteKey="6LfNo9sUAAAAAPI6346onXJthQKxYgqlrERcNcK5"></re-captcha>
+        <re-captcha (resolved)="resolvedCaptcha($event)" siteKey="6LfNo9sUAAAAAPI6346onXJthQKxYgqlrERcNcK5">
+        </re-captcha>
     </div>
 
     <div *ngIf="submitted && added">

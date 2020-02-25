@@ -13,14 +13,16 @@ export class BlogEntryCommentComponent implements OnInit {
   public body: string;
   public submitted = false;
   public added = false;
-  public comments: Array<any>;
+  public comments = [];
   @Input()
   public blogPostEntryId: string;
 
   constructor(private blogEntryCommentService: BlogEntryCommentService) {}
 
   ngOnInit() {
-    this.blogEntryCommentService.getComments(this.blogPostEntryId).then(comments => this.comments);
+    this.blogEntryCommentService.getComments(this.blogPostEntryId).then((comments) => {
+      this.comments = comments;
+    });
   }
 
   public onSubmit() {

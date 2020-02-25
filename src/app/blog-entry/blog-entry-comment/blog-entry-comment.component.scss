@@ -1,7 +1,20 @@
 :host {
-  .comment-create-container {
+  .comment-create-container,
+  .comments-container {
     max-width: 600px;
     margin: 0 auto 40px auto;
+  }
+
+  .comment {
+    border-bottom: 1px solid #cecece;
+    header {
+      h1 {
+        font-size: 1em;
+      }
+    }
+    .body {
+      white-space: pre-wrap;
+    }
   }
 
   input,
