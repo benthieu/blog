@@ -98,5 +98,9 @@ body {
     article code {
         font-size: 13px;
     }
+    article p code {
+        padding: 0 5px;
+        white-space: nowrap;
+    }
 }
 @keyframes shimmer{0%{background-position:-468px 0}to{background-position:468px 0}}
