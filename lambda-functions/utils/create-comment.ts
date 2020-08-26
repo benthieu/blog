@@ -1,14 +1,12 @@
 import {createClient} from 'contentful-management';
-import {Environment} from 'contentful-management/typings/environment';
-import {Space} from 'contentful-management/typings/space';
+import {Environment} from 'contentful-management/dist/typings/entities/environment';
+import {Space} from 'contentful-management/dist/typings/entities/space';
 
 const client = createClient({
     accessToken: process.env.CONTENTFUL_CONTENT_MANAGEMENT_ACCESS_TOKEN
 });
 
 export function createComment(body: string, email: string, author: string, blogPostEntryId: string) {
-
-
     return client.getSpace(process.env.BLOG_CONTENTFUL_SPACE_ID)
         .then((space: Space) => space.getEnvironment('master'))
         .then((environment: Environment) => environment.createEntry('comment', {
