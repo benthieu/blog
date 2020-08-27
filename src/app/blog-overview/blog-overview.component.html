@@ -5,7 +5,7 @@
 </header>
 <ng-container *ngIf="blogPosts.length && !loadingError; else emptyState">
   <article *ngFor="let blogPost of blogPosts">
-    <a [routerLink]="['/blog', blogPost.sys.id]">
+    <a [routerLink]="['/blog', blogPost.fields.slug]">
       <img [src]="blogPost.fields.image.fields.file.url + '?fm=jpg&fl=progressive&fit=fill&w=400&h=250'" />
     </a>
     <h3>{{ blogPost.sys.createdAt | date:'medium' }}</h3>
