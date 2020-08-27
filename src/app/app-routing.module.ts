@@ -8,7 +8,7 @@ const routes: Routes = [
     loadChildren: () => import('./blog-overview/blog-overview.module').then(m => m.BlogOverviewModule)
   },
   {
-    path: 'blog/:id' ,
+    path: 'blog/:slug' ,
     loadChildren: () => import('./blog-entry/blog-entry.module').then(m => m.BlogEntryModule)
   }
 ];

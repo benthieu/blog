@@ -22,6 +22,15 @@ export class ContentfulService {
     });
   }
 
+  getBlogPostBySlug(slug: string, query?: object): Promise<Entry<any>> {
+    return this.cdaClient.getEntries(Object.assign({
+      content_type: environment.contentful.contentTypeIds.blogPost
+    }, Object.assign({'fields.slug': slug}, query)))
+    .then(res => {
+      return res.items[0];
+    });
+  }
+
   getBlogPosts(query?: object): Promise<Entry<any>[]> {
     return this.cdaClient.getEntries(Object.assign({
       content_type: environment.contentful.contentTypeIds.blogPost,

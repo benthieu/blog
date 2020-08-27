@@ -9,7 +9,7 @@
       <img [src]="blogPost.fields.image.fields.file.url + '?fm=jpg&fl=progressive&fit=fill&w=400&h=250'" />
     </a>
     <h3>{{ blogPost.sys.createdAt | date:'medium' }}</h3>
-    <h2><a [routerLink]="['/blog', blogPost.sys.id]">{{ blogPost.fields.title }}</a></h2>
+    <h2><a [routerLink]="['/blog', blogPost.fields.slug]">{{ blogPost.fields.title }}</a></h2>
     <div class="description" Markdown>{{ blogPost.fields.description }}</div>
   </article>
 </ng-container>

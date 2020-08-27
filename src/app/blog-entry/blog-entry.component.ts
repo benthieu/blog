@@ -17,14 +17,13 @@ export class BlogEntryComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
-      this.contentfulService.getBlogPost(params.id).then(content => {
+      this.contentfulService.getBlogPostBySlug(params.slug).then(content => {
         this.blogEntryId = params.id;
         this.blogEntry = content;
       }).catch(() => {
         this.loadingError = true;
       });
     });
-
   }
 
   ngOnDestroy() {
