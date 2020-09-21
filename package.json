@@ -26,7 +26,7 @@
     "contentful": "^7.14.6",
     "contentful-management": "^5.28.0",
     "core-js": "^2.6.11",
-    "ng-recaptcha": "^5.0.0",
+    "ng-recaptcha": "^6.0.2",
     "ngx-md": "^8.1.6",
     "rxjs": "^6.6.2",
     "tslib": "^2.0.0",
