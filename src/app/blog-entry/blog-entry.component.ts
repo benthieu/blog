@@ -24,6 +24,7 @@ export class BlogEntryComponent implements OnInit, OnDestroy {
       this.contentfulService.getBlogPostBySlug(params.slug).then(content => {
         this.blogEntryId = content.sys.id;
         this.blogEntry = content;
+        this.meta.updateTag({property: 'og:title', content: content.fields.title + ' - Benjamin\'s Tech Blog'}, 'property="og:title"');
         this.meta.updateTag({property: 'og:description', content: content.fields.description}, 'property="og:description"');
         this.meta.updateTag({property: 'og:image', content: content.fields.heroImage.fields.file.url + '?fm=jpg&fl=progressive&fit=fill&w=1200&h=630'}, 'property="og:image"');
       }).catch(() => {
