@@ -1,4 +1,5 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import {Component, OnInit, OnDestroy} from '@angular/core';
+import {Meta} from '@angular/platform-browser';
 import {ActivatedRoute} from '@angular/router';
 import {ContentfulService} from '../shared/contentful.service';
 
@@ -13,13 +14,18 @@ export class BlogEntryComponent implements OnInit, OnDestroy {
   loadingError = false;
   blogEntry: any;
 
-  constructor(private route: ActivatedRoute, private contentfulService: ContentfulService) {}
+  constructor(
+    private route: ActivatedRoute,
+    private meta: Meta,
+    private contentfulService: ContentfulService) {}
 
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
       this.contentfulService.getBlogPostBySlug(params.slug).then(content => {
         this.blogEntryId = content.sys.id;
         this.blogEntry = content;
+        this.meta.updateTag({property: 'og:description', content: content.fields.description}, 'property="og:description"');
+        this.meta.updateTag({property: 'og:image', content: content.fields.heroImage.fields.file.url + '?fm=jpg&fl=progressive&fit=fill&w=1200&h=630'}, 'property="og:image"');
       }).catch(() => {
         this.loadingError = true;
       });
