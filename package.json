@@ -5,7 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "serve-lambda": "netlify-lambda serve lambda-functions",
-    "build": "ng build && netlify-lambda build lambda-functions",
+    "build": "ng build --configuration=production && netlify-lambda build lambda-functions",
     "build:stats": "ng build --statsJson",
     "analyze": "webpack-bundle-analyzer dist/blog/stats.json",
     "test": "ng test",
