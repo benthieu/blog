@@ -7,7 +7,7 @@
             </h1>
             <div class="description" Markdown>{{ blogEntry.fields.description }}</div>
         </header>
-        <img [src]="blogEntry.fields.heroImage.fields.file.url + '?fm=jpg&fl=progressive&fit=fill&w=1000&h=320'" />
+        <img [src]="blogEntry.fields.heroImage.fields.file.url + '?fm=jpg&fl=progressive&fit=fill&w=1300&h=400'" />
         <div class="body" Markdown>{{ blogEntry.fields.body }}</div>
     </article>
     <app-blog-entry-comment [blogPostEntryId]="blogEntryId"></app-blog-entry-comment>
