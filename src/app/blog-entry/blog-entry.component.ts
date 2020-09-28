@@ -2,6 +2,8 @@ import {Component, OnInit, OnDestroy} from '@angular/core';
 import {Meta} from '@angular/platform-browser';
 import {ActivatedRoute} from '@angular/router';
 import {ContentfulService} from '../shared/contentful.service';
+import 'prismjs/components/prism-typescript';
+import 'prismjs/components/prism-bash';
 
 @Component({
   selector: 'app-blog-entry',
