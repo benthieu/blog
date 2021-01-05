@@ -22,7 +22,7 @@
     "@angular/platform-browser": "^10.1.2",
     "@angular/platform-browser-dynamic": "^10.1.2",
     "@angular/router": "^10.1.2",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "contentful": "^7.14.6",
     "contentful-management": "^5.28.0",
     "core-js": "^2.6.11",
