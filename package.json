@@ -6,11 +6,13 @@
     "start": "ng serve",
     "serve-lambda": "netlify-lambda serve lambda-functions",
     "build": "ng build --configuration=production && netlify-lambda build lambda-functions",
+    "buildnfly": "ng build --configuration=production && netlify-lambda build lambda-functions",
     "build:stats": "ng build --statsJson",
     "analyze": "webpack-bundle-analyzer dist/blog/stats.json",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "nfly": "netlify-lambda build lambda-functions"
   },
   "private": true,
   "dependencies": {
