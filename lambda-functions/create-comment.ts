@@ -1,7 +1,6 @@
 import {createClient} from 'contentful-management';
 import {Environment} from 'contentful-management/dist/typings/entities/environment';
 import {Space} from 'contentful-management/dist/typings/entities/space';
-import 'core-js/stable';
 import 'regenerator-runtime/runtime';
 const axios = require('axios').default;
 // from https://github.com/shaunpersad/authless-comments-example
