@@ -1,3 +1,4 @@
 node_modules
 dist
 lambda-functions-dist
+.DS_Store

@@ -1,6 +1,12 @@
-import {createComment} from './utils/create-comment';
+import {createClient} from 'contentful-management';
+import {Environment} from 'contentful-management/dist/typings/entities/environment';
+import {Space} from 'contentful-management/dist/typings/entities/space';
 const axios = require('axios').default;
 // from https://github.com/shaunpersad/authless-comments-example
+
+const client = createClient({
+    accessToken: process.env.CONTENTFUL_CONTENT_MANAGEMENT_ACCESS_TOKEN
+});
 
 export function handler(event, context, callback) {
     const {author, email, body, captcha, blogPostEntryId} = JSON.parse(event.body);
@@ -22,6 +28,33 @@ export function handler(event, context, callback) {
                         statusCode: 200,
                         body: JSON.stringify({message: 'OK'})
                     }));
+            }
+        }));
+}
+
+export function createComment(body: string, email: string, author: string, blogPostEntryId: string) {
+    return client.getSpace(process.env.BLOG_CONTENTFUL_SPACE_ID)
+        .then((space: Space) => space.getEnvironment('master'))
+        .then((environment: Environment) => environment.createEntry('comment', {
+            fields: {
+                body: {
+                    'en-US': body
+                },
+                author: {
+                    'en-US': author
+                },
+                email: {
+                    'en-US': email
+                },
+                blogPostEntryId: {
+                    'en-US': {
+                        sys: {
+                            type: 'Link',
+                            linkType: 'Entry',
+                            id: blogPostEntryId
+                        }
+                    }
+                }
             }
         }));
 }
