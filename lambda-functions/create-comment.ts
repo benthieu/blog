@@ -1,8 +1,9 @@
 import {createClient} from 'contentful-management';
 import {Environment} from 'contentful-management/dist/typings/entities/environment';
 import {Space} from 'contentful-management/dist/typings/entities/space';
-import 'regenerator-runtime/runtime';
 const axios = require('axios').default;
+import 'core-js/stable';
+import regeneratorRuntime from 'regenerator-runtime';
 // from https://github.com/shaunpersad/authless-comments-example
 
 const client = createClient({
@@ -10,6 +11,7 @@ const client = createClient({
 });
 
 export function handler(event, context, callback) {
+    const r = regeneratorRuntime;
     const {author, email, body, captcha, blogPostEntryId} = JSON.parse(event.body);
     // verify the result by POSTing to google backend with secret and
     // frontend recaptcha token as payload
