@@ -2,6 +2,9 @@
     <article>
         <header>
             <h3>{{ blogEntry.sys.createdAt | date:'medium' }}</h3>
+            <h3 class="back-link">
+                <a routerLink="">← Go back to overview</a>
+            </h3>
             <h1>
                 {{ blogEntry.fields.title }}
             </h1>
